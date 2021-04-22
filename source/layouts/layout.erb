@@ -40,6 +40,22 @@ under the License.
       }
       <%= Rouge::Themes::Base16::Solarized.render(:scope => '.highlight') %>
     </style>
+    <style>
+      .deprecation-notice {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 100px;
+          padding: 20px;
+          background-color: #fff4e0;
+          z-index: 300;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 500;
+      }
+    </style>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
     <% if current_page.data.search %>
@@ -56,6 +72,21 @@ under the License.
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
+    <section class="deprecation-notice">
+      <div style="max-width: 800px">
+        <p>
+          <strong>
+            Notice:
+          </strong>
+          as of April 2020, our API documentation has been improved - the new version is available at
+          <a href="https://family.binti.com/api-docs">https://family.binti.com/api-docs</a>.
+        </p>
+        <p>
+          The content on this page is no longer being actively updated, so please
+          update your bookmarks and share the new link with your co-workers!
+        </p>
+      </div>
+    </section>
     <a href="#" id="nav-button">
       <span>
         NAV
